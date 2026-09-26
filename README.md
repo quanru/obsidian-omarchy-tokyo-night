@@ -1,5 +1,23 @@
 # Omarchy Tokyo Night
 
+An Obsidian theme inspired by Omarchy's Tokyo Night palette, with a light mode based on the community Tokyo Day palette. It keeps Obsidian's native layout and font settings and works offline without plugins or extra fonts.
+
+## Install
+
+In Obsidian, open **Settings → Appearance → Themes → Manage**, search for **Omarchy Tokyo Night**, and select **Install and use**. Before the theme is available in the community directory, download the `1.0.0` release and copy `manifest.json` and `theme.css` into `.obsidian/themes/Omarchy Tokyo Night/` in your vault. Then select the theme in **Settings → Appearance**.
+
+## Use and customize
+
+Choose **Light**, **Dark**, or **Adapt to system** under **Settings → Appearance → Base color**. Dark mode uses Tokyo Night; light mode uses Tokyo Day. This theme has no Style Settings options. Obsidian's built-in font settings remain available. Other CSS snippets, plugin styles, and custom accent colors may change the result.
+
+## Preview
+
+![Tokyo Night dark mode](images/dark.png)
+
+![Tokyo Day light mode](images/light.png)
+
+## 中文
+
 把 Omarchy 的 Tokyo Night 深色与社区 Tokyo Day 浅色配色带到 Obsidian。独立 CSS 主题，无需安装 Omarchy、插件或字体，离线可用。
 
 ## 预览
