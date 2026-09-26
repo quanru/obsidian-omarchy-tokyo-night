@@ -1,3 +1,4 @@
+/* @size-limit-exempt Generated distribution CSS. Edit src/*.css and run node build.mjs. */
 /* Omarchy Tokyo Night — independent Obsidian theme.
  * Palette and heading mapping: omacom/omarchy (MIT), see LICENSE.
  * Light palette: kayleg/omarchy-tokyo-day and folke/tokyonight.nvim (MIT).
@@ -5,9 +6,13 @@
 body.theme-dark {
   color-scheme: dark;
   --background-primary: #1a1b26;
-  --background-primary-alt: #1a1b26;
-  --background-secondary: #1a1b26;
-  --background-secondary-alt: #1a1b26;
+  --background-primary-alt: #13141c;
+  --background-secondary: #0e0e14;
+  --background-secondary-alt: #13141c;
+  --omarchy-pane-border: #414868;
+  --omarchy-pane-active: #7aa2f7;
+  --omarchy-code-background: #13141c;
+  --omarchy-rule: #414868;
   --background-modifier-hover: #24283b;
   --background-modifier-active-hover: #292e42;
   --background-modifier-border: #414868;
@@ -104,17 +109,17 @@ body.theme-dark {
   --nav-item-background-hover: #24283b;
   --nav-collapse-icon-color: #737da4;
   --nav-collapse-icon-color-collapsed: #737da4;
-  --tab-background-active: #24283b;
+  --tab-background-active: #1a1b26;
   --tab-text-color: #8992b5;
   --tab-text-color-active: #c0caf5;
   --tab-text-color-focused-active: #7aa2f7;
   --tab-outline-color: #414868;
-  --titlebar-background: #1a1b26;
-  --titlebar-background-focused: #1a1b26;
+  --titlebar-background: #0e0e14;
+  --titlebar-background-focused: #0e0e14;
   --titlebar-text-color-focused: #c0caf5;
-  --ribbon-background: #1a1b26;
-  --ribbon-background-collapsed: #1a1b26;
-  --status-bar-background: #1a1b26;
+  --ribbon-background: #0e0e14;
+  --ribbon-background-collapsed: #0e0e14;
+  --status-bar-background: #0e0e14;
   --status-bar-text-color: #8992b5;
   --divider-color: #414868;
   --divider-color-hover: #7aa2f7;
@@ -141,9 +146,13 @@ body.theme-dark {
 body.theme-light {
   color-scheme: light;
   --background-primary: #e1e2e7;
-  --background-primary-alt: #e1e2e7;
-  --background-secondary: #e1e2e7;
-  --background-secondary-alt: #e1e2e7;
+  --background-primary-alt: #d5d8e3;
+  --background-secondary: #c9cedb;
+  --background-secondary-alt: #d5d8e3;
+  --omarchy-pane-border: #a1a6c5;
+  --omarchy-pane-active: #2e7de9;
+  --omarchy-code-background: #d5d8e3;
+  --omarchy-rule: #a1a6c5;
   --background-modifier-hover: #d5d8e3;
   --background-modifier-active-hover: #b7c1e3;
   --background-modifier-border: #a1a6c5;
@@ -240,17 +249,17 @@ body.theme-light {
   --nav-item-background-hover: #d5d8e3;
   --nav-collapse-icon-color: #6172b0;
   --nav-collapse-icon-color-collapsed: #6172b0;
-  --tab-background-active: #d5d8e3;
+  --tab-background-active: #e1e2e7;
   --tab-text-color: #52649b;
   --tab-text-color-active: #243b73;
   --tab-text-color-focused-active: #2e7de9;
   --tab-outline-color: #a1a6c5;
-  --titlebar-background: #e1e2e7;
-  --titlebar-background-focused: #e1e2e7;
+  --titlebar-background: #c9cedb;
+  --titlebar-background-focused: #c9cedb;
   --titlebar-text-color-focused: #243b73;
-  --ribbon-background: #e1e2e7;
-  --ribbon-background-collapsed: #e1e2e7;
-  --status-bar-background: #e1e2e7;
+  --ribbon-background: #c9cedb;
+  --ribbon-background-collapsed: #c9cedb;
+  --status-bar-background: #c9cedb;
   --status-bar-text-color: #52649b;
   --divider-color: #a1a6c5;
   --divider-color-hover: #2e7de9;
@@ -273,7 +282,452 @@ body.theme-light {
   --scrollbar-active-thumb-bg: #6172b0;
 }
 
-/* Keep native layout, font preferences and mobile navigation intact. */
+/* Echo Omarchy's tiled windows in desktop Obsidian without changing note typography. */
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf .workspace-leaf-content {
+  box-shadow: inset 0 0 0 1px var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-leaf.mod-active .workspace-leaf-content {
+  box-shadow: inset 0 0 0 2px var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root {
+  counter-reset: omarchy-pane;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tabs {
+  counter-increment: omarchy-pane;
+}
+
+body:not(.is-mobile) .workspace-tab-header-container {
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tabs {
+  background: var(--background-secondary);
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-container {
+  background: var(--background-primary);
+}
+
+body:not(.is-mobile) .workspace-tab-header {
+  border-radius: 0;
+}
+
+body:not(.is-mobile) .workspace-tab-header.is-active {
+  box-shadow: inset 0 2px var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .workspace-tab-header:not(.is-active):hover {
+  background: var(--background-modifier-hover);
+  box-shadow: inset 0 2px var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .workspace-tab-header:focus-visible {
+  outline: 2px solid var(--omarchy-pane-active);
+  outline-offset: -2px;
+}
+
+body:not(.is-mobile) .workspace-split.mod-root .workspace-tab-header-inner-title::before {
+  content: counter(omarchy-pane, decimal-leading-zero);
+  display: inline-block;
+  margin-right: 0.7em;
+  color: var(--text-faint);
+  font-family: var(--font-monospace);
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
+body:not(.is-mobile)
+  .workspace-split.mod-root
+  .workspace-tabs:has(.workspace-leaf.mod-active)
+  .workspace-tab-header.is-active
+  .workspace-tab-header-inner-title::before {
+  color: var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) :is(.workspace-tab-header-inner-title, .status-bar) {
+  font-family: var(--font-monospace);
+}
+
+body:not(.is-mobile) .view-header {
+  border-bottom: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .view-header-title {
+  font-family: var(--font-monospace);
+}
+
+/* A compact bottom rail echoes Omarchy's status modules. */
+body:not(.is-mobile) .status-bar {
+  background: var(--background-secondary);
+  border: 1px solid var(--omarchy-pane-border);
+  border-top: 2px solid var(--omarchy-pane-active);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body:not(.is-mobile) .status-bar-item + .status-bar-item {
+  border-left: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .status-bar-item:hover {
+  background: var(--background-modifier-hover);
+  color: var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .nav-file-title.is-active {
+  box-shadow: inset 3px 0 var(--omarchy-pane-active);
+  border-radius: 0;
+}
+
+/* File tree uses the same flat, high-contrast selection language as the workspace. */
+body:not(.is-mobile) :is(.nav-file-title, .nav-folder-title) {
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) :is(.nav-file-title, .nav-folder-title):hover {
+  box-shadow: inset 2px 0 var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) :is(.nav-file-title, .nav-folder-title).is-active:hover {
+  box-shadow: inset 3px 0 var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .nav-folder-title.is-active {
+  box-shadow: inset 3px 0 var(--omarchy-pane-active);
+  border-radius: 0;
+}
+
+body:not(.is-mobile) :is(.workspace-ribbon .clickable-icon.is-active, .workspace-ribbon .clickable-icon:hover) {
+  border-radius: 2px;
+}
+
+/* Quick switcher and command palette share one Omarchy-style launcher surface. */
+body:not(.is-mobile) .prompt {
+  background: var(--background-secondary);
+  border: 1px solid var(--omarchy-pane-border);
+  border-top: 3px solid var(--omarchy-pane-active);
+  border-radius: 3px;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 28%);
+}
+
+body:not(.is-mobile) .prompt-input-container {
+  background: var(--background-primary-alt);
+  border-bottom: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .prompt-input-container::before {
+  content: '›';
+  color: var(--omarchy-pane-active);
+  font-family: var(--font-monospace);
+  font-weight: 700;
+  padding-left: 0.8em;
+}
+
+body:not(.is-mobile) .prompt-input {
+  background: transparent;
+  font-family: var(--font-monospace);
+}
+
+body:not(.is-mobile) .prompt .suggestion-item {
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) .prompt .suggestion-item.is-selected {
+  background: var(--background-modifier-hover);
+  box-shadow: inset 3px 0 var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .prompt-instructions {
+  border-top: 1px solid var(--omarchy-pane-border);
+  font-family: var(--font-monospace);
+}
+
+/* The sidebar search is a compact version of the launcher, with the same focus edge. */
+body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .global-search-input-container {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--omarchy-pane-border);
+  border-left: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .global-search-input-container:focus-within {
+  border-color: var(--omarchy-pane-active);
+  box-shadow: 0 0 0 1px var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .global-search-input-container input {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--font-monospace);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .global-search-input-container input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .search-results-info {
+  border-bottom: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .search-result-file-title {
+  border-radius: 0;
+  font-family: var(--font-monospace);
+}
+
+body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .search-result-file-match:hover {
+  background: var(--background-modifier-hover);
+  box-shadow: inset 2px 0 var(--omarchy-pane-active);
+}
+
+/* Settings uses the same flat panels and launcher search field. */
+body:not(.is-mobile) .mod-settings .vertical-tab-header {
+  background: var(--background-secondary);
+  border-right: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .mod-settings .vertical-tab-header input[type='search'] {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--omarchy-pane-border);
+  border-left: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+  box-shadow: none;
+  font-family: var(--font-monospace);
+}
+
+body:not(.is-mobile) .mod-settings .vertical-tab-header input[type='search']:focus {
+  border-color: var(--omarchy-pane-active);
+  box-shadow: 0 0 0 1px var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .mod-settings .vertical-tab-header-group-title {
+  border-bottom: 1px solid var(--omarchy-pane-border);
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+  text-transform: uppercase;
+}
+
+body:not(.is-mobile) .mod-settings .vertical-tab-nav-item {
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) .mod-settings .vertical-tab-nav-item.is-active {
+  background: var(--background-modifier-hover);
+  box-shadow: inset 3px 0 var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) .mod-settings .vertical-tab-content-container {
+  background: var(--background-primary);
+}
+
+body:not(.is-mobile) .mod-settings .setting-items {
+  border: 1px solid var(--omarchy-pane-border);
+  border-top: 2px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) .mod-settings :is(button, select, input:not([type='checkbox'])) {
+  border-radius: 2px;
+}
+
+/* Dialogs and the community browser continue the launcher surface language. */
+body:not(.is-mobile) .modal:not(.mod-settings) {
+  background: var(--background-primary);
+  border: 1px solid var(--omarchy-pane-border);
+  border-top: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) .modal:not(.mod-settings) .modal-title {
+  color: var(--text-normal);
+  font-family: var(--font-monospace);
+}
+
+body:not(.is-mobile) .modal:not(.mod-settings) :is(button, input, textarea, select) {
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) .mod-community-modal .community-modal-controls {
+  background: var(--background-secondary);
+  border-bottom: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .mod-community-modal .community-modal-search .search-input-container {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--omarchy-pane-border);
+  border-left: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+body:not(.is-mobile) .mod-community-modal .community-modal-search input {
+  background: transparent;
+  font-family: var(--font-monospace);
+}
+
+body:not(.is-mobile) .mod-community-modal .community-item {
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) .mod-community-modal .community-item:is(:hover, .is-selected) {
+  border-color: var(--omarchy-pane-active);
+  box-shadow: inset 3px 0 var(--omarchy-pane-active);
+}
+
+/* Canvas cards read as small tiled windows; focus stays visible while dragging. */
+body:not(.is-mobile) .canvas-node-container {
+  background: var(--background-primary-alt);
+  border-radius: 2px;
+  box-shadow: inset 0 2px var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .canvas-node:hover .canvas-node-container {
+  box-shadow: inset 0 2px var(--omarchy-pane-active);
+}
+
+body:not(.is-mobile) :is(.canvas-control-group, .canvas-card-menu) {
+  background: var(--background-secondary);
+  border: 1px solid var(--omarchy-pane-border);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+body:not(.is-mobile) .canvas-control-item:hover {
+  background: var(--background-modifier-hover);
+  color: var(--omarchy-pane-active);
+}
+
+/* The graph itself is WebGL; its control panel and semantic colors remain CSS-driven. */
+body:not(.is-mobile) .graph-controls {
+  background: var(--background-secondary);
+  border: 1px solid var(--omarchy-pane-border);
+  border-top: 2px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+body:not(.is-mobile) .graph-control-section {
+  border-bottom: 1px solid var(--omarchy-pane-border);
+}
+
+body:not(.is-mobile) .graph-controls :is(button, input, select) {
+  border-radius: 2px;
+}
+
+/* Keep mobile touch targets and layout, but use the same panel and focus edges. */
+body.is-mobile {
+  --mobile-sidebar-radius: 2px;
+  --mobile-sidebar-background: var(--background-secondary);
+  --navbar-radius: 2px;
+  --tab-switcher-background: var(--background-primary);
+  --tab-switcher-menubar-background: var(--background-secondary);
+}
+
+body.is-mobile .mobile-navbar {
+  background: var(--background-secondary);
+  border: 1px solid var(--omarchy-pane-border);
+  border-top: 2px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+body.is-mobile .workspace-drawer {
+  background: var(--background-secondary);
+  border-radius: 0;
+}
+
+body.is-mobile .workspace-drawer.mod-left {
+  border-right: 1px solid var(--omarchy-pane-border);
+}
+
+body.is-mobile .workspace-drawer.mod-right {
+  border-left: 1px solid var(--omarchy-pane-border);
+}
+
+body.is-mobile .workspace-drawer-header-name-text {
+  font-family: var(--font-monospace);
+}
+
+body.is-mobile .workspace-drawer-tab-select .workspace-tab-header-inner {
+  border-left: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+body.is-mobile .workspace-drawer .search-input-container {
+  background: var(--background-primary-alt);
+  border: 1px solid var(--omarchy-pane-border);
+  border-left: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+body.is-mobile .workspace-drawer .search-input-container input {
+  background: transparent;
+  border: 0;
+  font-family: var(--font-monospace);
+}
+
+body.is-mobile .workspace-drawer :is(.nav-file-title, .nav-folder-title).is-active {
+  border-radius: 2px;
+  box-shadow: inset 3px 0 var(--omarchy-pane-active);
+}
+
+body.is-mobile .mobile-tab-switcher .mobile-tab {
+  border-radius: 2px;
+}
+
+body.is-mobile .mobile-tab-switcher-menubar {
+  border-top: 2px solid var(--omarchy-pane-active);
+}
+
+body.is-mobile .empty-state-action {
+  border-left: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+  font-family: var(--font-monospace);
+}
+
+body.is-mobile .prompt {
+  border-top: 3px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+body.is-mobile .prompt .prompt-input {
+  border-radius: 2px;
+  font-family: var(--font-monospace);
+}
+
+:is(.theme-dark, .theme-light) .markdown-rendered pre {
+  background: var(--omarchy-code-background);
+  border: 1px solid var(--omarchy-pane-border);
+  border-top-color: var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+:is(.theme-dark, .theme-light) .markdown-rendered .callout {
+  border: 1px solid var(--omarchy-pane-border);
+  border-left: 2px solid var(--omarchy-pane-active);
+  border-radius: 2px;
+}
+
+:is(.theme-dark, .theme-light) .markdown-rendered h1 {
+  border-bottom: 1px solid var(--omarchy-rule);
+  padding-bottom: 0.3em;
+}
+
+:is(.theme-dark, .theme-light) .markdown-rendered h2 {
+  border-left: 3px solid var(--h2-color);
+  padding-left: 0.6em;
+}
+
+:is(.theme-dark, .theme-light) .markdown-rendered :is(th, td) {
+  border-color: var(--omarchy-rule);
+}
+
+/* Keep native font preferences and mobile navigation intact. */
 :is(.theme-dark, .theme-light) .search-result-file-title {
   color: var(--text-accent);
 }
