@@ -486,6 +486,11 @@ body:not(.is-mobile) .workspace-leaf-content[data-type='search'] .search-result-
   box-shadow: inset 2px 0 var(--omarchy-pane-active);
 }
 
+body.theme-light .notice {
+  color: var(--text-normal);
+  background-color: var(--background-primary);
+}
+
 /* Settings uses the same flat panels and launcher search field. */
 body:not(.is-mobile) .mod-settings .vertical-tab-header {
   background: var(--background-secondary);
